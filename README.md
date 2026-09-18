@@ -51,24 +51,24 @@ asdf install
 Run without building, straight from source:
 
 ```sh
-./scripts/start.sh sync --group=https://gitlab.com/sofiinc --method=ssh --destination=.
+./scripts/start.sh sync --group=https://gitlab.com/danny270793 --method=ssh --destination=.
 ```
 
 Or build a binary first:
 
 ```sh
 ./scripts/build.sh
-./build/gitmanager sync --group=https://gitlab.com/sofiinc --method=ssh --destination=.
+./build/gitmanager sync --group=https://gitlab.com/danny270793 --method=ssh --destination=.
 ```
 
-A project at `https://gitlab.com/sofiinc/money/funds-transfer` ends up at
-`./money/funds-transfer` (the group's own path segment, `sofiinc`, is
+A project at `https://gitlab.com/danny270793/group/project` ends up at
+`./group/project` (the group's own path segment, `danny270793`, is
 stripped since `.` already represents the group root).
 
 Sync a single repository instead of a whole group:
 
 ```bash
-gitmanager sync --repo=https://gitlab.com/sofiinc/money/funds-transfer --method=ssh --destination=.
+gitmanager sync --repo=https://gitlab.com/danny270793/group/project --method=ssh --destination=.
 ```
 
 Update every repository already cloned under a folder, without checking
