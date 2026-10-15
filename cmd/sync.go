@@ -28,14 +28,14 @@ subgroups) into a local folder tree, or clones/updates a single repository.
 
 Repositories that are already cloned at the destination are updated by
 stashing any local changes, switching to main and pulling.`,
-	Example: `  gitmanager sync --group=https://gitlab.com/sofiinc --method=ssh --destination=.
-  gitmanager sync --repo=https://gitlab.com/sofiinc/money/funds-transfer --method=ssh --destination=.`,
+	Example: `  gitmanager sync --group=https://gitlab.com/my-org --method=ssh --destination=.
+  gitmanager sync --repo=https://gitlab.com/my-org/group/project --method=ssh --destination=.`,
 	RunE: runSync,
 }
 
 func init() {
-	syncCmd.Flags().StringVar(&syncGroup, "group", "", "GitLab group URL to sync recursively, e.g. https://gitlab.com/sofiinc")
-	syncCmd.Flags().StringVar(&syncRepo, "repo", "", "Single GitLab repository URL to sync, e.g. https://gitlab.com/sofiinc/money/funds-transfer")
+	syncCmd.Flags().StringVar(&syncGroup, "group", "", "GitLab group URL to sync recursively, e.g. https://gitlab.com/my-org")
+	syncCmd.Flags().StringVar(&syncRepo, "repo", "", "Single GitLab repository URL to sync, e.g. https://gitlab.com/my-org/group/project")
 	syncCmd.Flags().StringVar(&syncMethod, "method", "ssh", "Clone method: ssh or https")
 	syncCmd.Flags().StringVar(&syncDestination, "destination", ".", "Local destination folder")
 	syncCmd.Flags().StringVar(&syncToken, "token", "", "GitLab personal access token (falls back to GITLAB_TOKEN env var; only needed for --group on private groups)")

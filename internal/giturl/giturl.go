@@ -12,11 +12,11 @@ import (
 type Ref struct {
 	Scheme   string // http or https
 	Host     string // e.g. gitlab.com
-	FullPath string // e.g. sofiinc/money/funds-transfer (no leading/trailing slash, no .git)
+	FullPath string // e.g. my-org/group/project (no leading/trailing slash, no .git)
 }
 
 // Parse parses a GitLab group or project URL such as
-// "https://gitlab.com/sofiinc/money/funds-transfer".
+// "https://gitlab.com/my-org/group/project".
 func Parse(raw string) (Ref, error) {
 	u, err := url.Parse(strings.TrimSpace(raw))
 	if err != nil {
